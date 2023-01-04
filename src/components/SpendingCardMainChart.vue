@@ -8,6 +8,7 @@ import {
   ChartEvent,
   Chart as ChartJS,
   ChartOptions,
+  ChartTypeRegistry,
   Legend,
   LinearScale,
   Title,
@@ -23,7 +24,7 @@ const weeklySpend = inject(WeeklySpendKey)
 
 const dailySpend = computed<DailySpend[]>(() => weeklySpend?.dailySpend ?? [])
 
-const options: ChartOptions = {
+const options: ChartOptions<'bar'> = {
   responsive: true,
   maintainAspectRatio: false,
   onHover(event: ChartEvent) {
@@ -76,7 +77,7 @@ const options: ChartOptions = {
   },
 }
 
-const chartData = computed<ChartData>(() => {
+const chartData = computed<ChartData<'bar'>>(() => {
   const highest = dailySpend.value.reduce((p, c) => Math.max(p, c.amount), 0)
 
   return {
