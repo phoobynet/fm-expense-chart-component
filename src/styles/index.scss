@@ -1,0 +1,66 @@
+:root {
+  --color-primary-soft-red: hsl(10, 79%, 65%);
+  --color-primary-soft-red-hover: hsl(10, 100%, 76%);
+  --color-primary-cyan: hsl(186, 34%, 60%);
+  --color-primary-cyan-hover: hsl(186, 49%, 80%);
+  --color-neutral-dark-brown: hsl(25, 47%, 15%);
+  --color-neutral-medium-brown: hsl(28, 10%, 53%);
+  --color-neutral-cream: hsl(27, 66%, 92%);
+  --color-neutral-very-pale-orange: hsl(33, 100%, 98%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  all: unset;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+body {
+  font-size: 18px;
+  background-color: hsl(27, 66%, 92%);
+  font-family: 'DM Sans', sans-serif;
+}
