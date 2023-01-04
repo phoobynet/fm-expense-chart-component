@@ -44,7 +44,7 @@ const differenceFromLastMonth = computed(() => {
   border-top-color: var(--color-neutral-cream);
   border-top-style: solid;
   border-top-width: 3px;
-  margin: 0 1rem 0.5rem;
+  margin: 0 1.3rem 0.6rem;
 
   .caption {
     color: var(--color-neutral-medium-brown);

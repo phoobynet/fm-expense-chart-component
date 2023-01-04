@@ -30,7 +30,7 @@ const balance = computed(() => numeral(weeklySpend?.balance).format('$0,0.00'))
   background-color: var(--color-primary-soft-red);
   height: 97px;
   border-radius: 0.6rem;
-  padding: 1rem;
+  padding: 1rem 1.3rem;
 
   .caption {
     font-size: 15px;
