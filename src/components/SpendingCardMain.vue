@@ -20,7 +20,7 @@ import SpendingCardMainHeader from '@/components/SpendingCardMainHeader.vue'
   background-color: #fffbf6;
   min-height: 421px;
   border-radius: 0.6rem;
-  padding: 1rem;
+  padding: 1rem 0;
 
   @media screen and (min-width: 1440px) {
     min-height: 511px;

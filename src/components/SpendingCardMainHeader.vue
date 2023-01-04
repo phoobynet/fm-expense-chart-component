@@ -11,6 +11,7 @@ const props = defineProps<{ periodInDays: number }>()
 <style lang="scss" scoped>
 .spending-card-main-header {
   align-self: end;
+  margin: 0 1rem;
   h1 {
     font-size: 1.5rem;
     font-weight: 700;

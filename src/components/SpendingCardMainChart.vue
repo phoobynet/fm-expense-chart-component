@@ -8,7 +8,6 @@ import {
   ChartEvent,
   Chart as ChartJS,
   ChartOptions,
-  ChartTypeRegistry,
   Legend,
   LinearScale,
   Title,
@@ -34,6 +33,8 @@ const options: ChartOptions<'bar'> = {
     padding: {
       top: 20,
       bottom: 20,
+      left: 16,
+      right: 16,
     },
   },
   scales: {
