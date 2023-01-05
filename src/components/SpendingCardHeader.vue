@@ -53,6 +53,9 @@ const balance = computed(() => numeral(weeklySpend?.balance).format('$0,0.00'))
 
 @media screen and (min-width: 1440px) {
   .spending-card-header {
+    height: 125px;
+    padding: 2rem 2rem;
+    border-radius: 1.5rem;
     .logo {
       width: 72px;
       height: 48px;

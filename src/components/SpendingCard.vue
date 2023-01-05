@@ -31,6 +31,7 @@ provide<WeeklySpend>(WeeklySpendKey, props.weeklySpend)
   @media screen and (min-width: 1440px) {
     width: 540px;
     min-height: 660px;
+    gap: 2rem;
   }
 }
 </style>

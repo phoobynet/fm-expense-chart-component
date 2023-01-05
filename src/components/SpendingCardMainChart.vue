@@ -105,7 +105,7 @@ const chartData = computed<ChartData<'bar'>>(() => {
 </script>
 
 <template>
-  <div>
+  <div class="spending-card-main-chart">
     <Bar
       :data="chartData"
       :options="options"
@@ -113,4 +113,7 @@ const chartData = computed<ChartData<'bar'>>(() => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.spending-card-main-chart {
+}
+</style>

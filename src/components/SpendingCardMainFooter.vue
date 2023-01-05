@@ -23,15 +23,15 @@ const differenceFromLastMonth = computed(() => {
 
 <template>
   <div class="spending-chart-main-footer">
-    <div>
-      <div class="caption">Total this month</div>
+    <div class="caption">Total this month</div>
+    <div class="values">
       <div class="total-this-month">{{ totalThisMonth }}</div>
-    </div>
-    <div>
-      <div class="difference-from-last-month">
-        {{ differenceFromLastMonth }}
+      <div class="diff-container">
+        <div class="diff">
+          {{ differenceFromLastMonth }}
+        </div>
+        <div class="caption">from last month</div>
       </div>
-      <div class="caption">from last month</div>
     </div>
   </div>
 </template>
@@ -39,12 +39,18 @@ const differenceFromLastMonth = computed(() => {
 <style lang="scss" scoped>
 .spending-chart-main-footer {
   display: flex;
+  flex-direction: column;
+  gap: 0;
   justify-content: space-between;
-  align-items: end;
-  border-top-color: var(--color-neutral-cream);
-  border-top-style: solid;
-  border-top-width: 3px;
   margin: 0 1.3rem 0.6rem;
+  align-self: end;
+
+  .values {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
 
   .caption {
     color: var(--color-neutral-medium-brown);
@@ -57,19 +63,24 @@ const differenceFromLastMonth = computed(() => {
     font-weight: 700;
     font-size: 30px;
     letter-spacing: 0;
-    line-height: 30px;
-    padding-top: 0.5rem;
   }
 
-  .difference-from-last-month {
+  .diff {
     font-weight: 700;
     font-size: 15px;
     letter-spacing: 0;
     text-align: right;
-    line-height: 15px;
+  }
+
+  .diff-container {
+    text-align: right;
+    line-height: 1.2rem;
+    padding-bottom: 0.3rem;
   }
 
   @media screen and (min-width: 1440px) {
+    margin: 0 2rem 2.7rem;
+
     .caption {
       color: var(--color-neutral-medium-brown);
       font-size: 18px;
@@ -79,13 +90,13 @@ const differenceFromLastMonth = computed(() => {
 
     .total-this-month {
       font-weight: 700;
-      font-size: 30px;
+      font-size: 48px;
       letter-spacing: 0;
     }
 
     .difference-from-last-month {
       font-weight: 700;
-      font-size: 15px;
+      font-size: 18px;
       letter-spacing: 0;
       text-align: right;
     }
