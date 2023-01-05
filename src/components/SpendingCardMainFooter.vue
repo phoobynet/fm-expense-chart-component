@@ -79,7 +79,7 @@ const differenceFromLastMonth = computed(() => {
   }
 
   @media screen and (min-width: 1440px) {
-    margin: 0 2rem 2.7rem;
+    margin: 0 2.5rem 1.5rem;
 
     .caption {
       color: var(--color-neutral-medium-brown);
@@ -94,11 +94,18 @@ const differenceFromLastMonth = computed(() => {
       letter-spacing: 0;
     }
 
-    .difference-from-last-month {
+    .diff-container {
+      text-align: right;
+      line-height: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .diff {
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 0;
       text-align: right;
+      line-height: 2rem;
     }
   }
 }

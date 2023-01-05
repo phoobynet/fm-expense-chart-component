@@ -19,6 +19,8 @@ const props = defineProps<{ periodInDays: number }>()
   }
 
   @media screen and (min-width: 1440px) {
+    margin: 0.5rem 2.5rem;
+    align-self: start;
     h1 {
       font-size: 2rem;
     }

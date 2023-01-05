@@ -7,7 +7,7 @@ import { provide } from 'vue'
 
 const props = defineProps<{ weeklySpend: WeeklySpend }>()
 
-provide<WeeklySpend>(WeeklySpendKey, props.weeklySpend)
+provide(WeeklySpendKey, props.weeklySpend)
 </script>
 
 <template>

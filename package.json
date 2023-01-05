@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^9.10.0",
     "chart.js": "^4.1.1",
+    "deepmerge": "^4.2.2",
     "numeral": "^2.0.6",
     "vue": "^3.2.45",
     "vue-chartjs": "^5.1.0",
@@ -17,6 +19,7 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "@types/deepmerge": "^2.2.0",
     "@types/node": "^18.11.18",
     "@types/numeral": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^5.48.0",

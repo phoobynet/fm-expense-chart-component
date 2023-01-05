@@ -23,15 +23,19 @@ import SpendingCardMainHeader from '@/components/SpendingCardMainHeader.vue'
   border-radius: 0.6rem;
   padding: 1rem 0;
 
-  @media screen and (min-width: 1440px) {
-    min-height: 511px;
-    border-radius: 1.5rem;
-  }
-
   .separator {
     background-color: var(--color-neutral-cream);
     height: 3px;
     margin: 0 1.3rem;
+  }
+
+  @media screen and (min-width: 1440px) {
+    min-height: 511px;
+    border-radius: 1.5rem;
+
+    .separator {
+      margin: 0 2.5rem;
+    }
   }
 }
 </style>

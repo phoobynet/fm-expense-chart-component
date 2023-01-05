@@ -1,82 +1,25 @@
 <script lang="ts" setup>
 import { WeeklySpendKey } from '@/components/SpendingCardSymbols'
+import { useSpendingCardMainChartOptions } from '@/components/useSpendingCardMainChartOptions'
 import { DailySpend } from '@/lib/api/getWeeklySpending'
-import {
-  BarElement,
-  CategoryScale,
-  ChartData,
-  ChartEvent,
-  Chart as ChartJS,
-  ChartOptions,
-  Legend,
-  LinearScale,
-  Title,
-  Tooltip,
-} from 'chart.js'
-import numeral from 'numeral'
+import { useWindowSize } from '@vueuse/core'
+import { ChartData } from 'chart.js'
 import { computed, inject } from 'vue'
 import { Bar } from 'vue-chartjs'
-
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 const weeklySpend = inject(WeeklySpendKey)
 
 const dailySpend = computed<DailySpend[]>(() => weeklySpend?.dailySpend ?? [])
 
-const options: ChartOptions<'bar'> = {
-  responsive: true,
-  maintainAspectRatio: false,
-  onHover(event: ChartEvent) {
-    ;(event.native?.target as HTMLElement).style.cursor = 'pointer'
-  },
-  layout: {
-    padding: {
-      top: 20,
-      bottom: 20,
-      left: 16,
-      right: 16,
-    },
-  },
-  scales: {
-    y: {
-      display: false,
-    },
-    x: {
-      border: {
-        display: false,
-      },
-      grid: {
-        display: false,
-      },
-      ticks: {
-        color: 'hsl(28, 10%, 53%)',
-      },
-    },
-  },
-  plugins: {
-    tooltip: {
-      position: 'nearest',
-      displayColors: false,
-      yAlign: 'bottom',
-      xAlign: 'center',
-      bodyFont: {
-        weight: 'bold',
-      },
-      caretSize: 0,
-      callbacks: {
-        title: function () {
-          return ''
-        },
-        label: function (context) {
-          return numeral(context.raw as number).format('$0,0.00')
-        },
-      },
-    },
-    legend: {
-      display: false,
-    },
-  },
-}
+const { width } = useWindowSize()
+
+const barBorderRadius = computed<number>(() => {
+  if (width.value < 1440) {
+    return 3
+  }
+
+  return 6
+})
 
 const chartData = computed<ChartData<'bar'>>(() => {
   const highest = dailySpend.value.reduce((p, c) => Math.max(p, c.amount), 0)
@@ -85,7 +28,7 @@ const chartData = computed<ChartData<'bar'>>(() => {
     labels: dailySpend.value.map((x) => x.day),
     datasets: [
       {
-        borderRadius: 3,
+        borderRadius: barBorderRadius.value,
         data: dailySpend.value.map((x) => x.amount),
         borderSkipped: false,
         backgroundColor: dailySpend.value.map((x) =>
@@ -102,13 +45,15 @@ const chartData = computed<ChartData<'bar'>>(() => {
     ],
   }
 })
+
+const { chartOptions } = useSpendingCardMainChartOptions()
 </script>
 
 <template>
   <div class="spending-card-main-chart">
     <Bar
       :data="chartData"
-      :options="options"
+      :options="chartOptions"
     />
   </div>
 </template>
