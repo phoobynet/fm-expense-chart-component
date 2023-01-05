@@ -46,6 +46,9 @@ const weeklySpend: WeeklySpend = {
   balance: 921.48,
 }
 
+/**
+ * Fake an API call to get weekly spend.
+ */
 export const getWeeklySpending = async (): Promise<WeeklySpend> => {
   return {
     ...weeklySpend,

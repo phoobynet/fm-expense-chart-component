@@ -7,14 +7,16 @@ import { ChartData } from 'chart.js'
 import { computed, inject } from 'vue'
 import { Bar } from 'vue-chartjs'
 
+const DESKTOP_SIZE = 1440
+
+const { width } = useWindowSize()
+
 const weeklySpend = inject(WeeklySpendKey)
 
 const dailySpend = computed<DailySpend[]>(() => weeklySpend?.dailySpend ?? [])
 
-const { width } = useWindowSize()
-
 const barBorderRadius = computed<number>(() => {
-  if (width.value < 1440) {
+  if (width.value < DESKTOP_SIZE) {
     return 3
   }
 
@@ -46,19 +48,14 @@ const chartData = computed<ChartData<'bar'>>(() => {
   }
 })
 
-const { chartOptions } = useSpendingCardMainChartOptions()
+const { chartOptions } = useSpendingCardMainChartOptions(DESKTOP_SIZE)
 </script>
 
 <template>
-  <div class="spending-card-main-chart">
+  <div>
     <Bar
       :data="chartData"
       :options="chartOptions"
     />
   </div>
 </template>
-
-<style lang="scss" scoped>
-.spending-card-main-chart {
-}
-</style>
